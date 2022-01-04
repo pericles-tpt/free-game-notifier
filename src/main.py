@@ -92,6 +92,7 @@ def main():
 	
 		# This reverse() is specific to gg.deals, to get the notifications in the right order
 		notify_q.reverse()
+		notify_q2.reverse()
 		for i in notify_q:
 			attempt_po_api_request(f"{i[1]}: '{i[0]}'")
 		for i in notify_q2:
