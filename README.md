@@ -1,4 +1,4 @@
-# free-game-notifier
+# Free (PC) Game Notifier
 A small python program I made to notify me (via [PushOver](https://pushover.net/)) of free pc games whenever they get announced. It currently scrapes [gg.deals](https://gg.deals/) to find "freebies" and bundles (might not be the best data source) and uses PushOver to send the notification (PushOver is a paid service but it's a very good value in my opinion). It's designed to run in a 24/7 environment and check for new games periodically.
 
 ## Setup
