@@ -1,3 +1,4 @@
 # TODO: Fill these in with your api credentials
 PO_USER_KEY: ""
 PO_TOKEN_KEY: ""
+PO_TOKEN_KEY_FAIL: "" # OPTIONAL: If you want to be notified when the program fails

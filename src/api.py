@@ -28,7 +28,7 @@ timeout           = 30
 exception_delay   = 20
 
 # Pushover API - For sending notifications to other devices
-def attempt_po_api_request(message):
+def attempt_po_api_request(message, token_no=0):
     po_timeouts_count = 0
     sc                = 0
     conn              = http.client.HTTPSConnection("api.pushover.net:443")
@@ -36,7 +36,10 @@ def attempt_po_api_request(message):
     # Get Key/Token Here
     credentials = retrieve_from_yaml(['PO_USER_KEY', 'PO_TOKEN_KEY'])
     po_user_key = credentials['PO_USER_KEY']
+
     po_token_key = credentials['PO_TOKEN_KEY']
+    if (token_no == 1):
+        po_token_key = retrieve_from_yaml(['PO_TOKEN_KEY_FAIL'])['PO_TOKEN_KEY_FAIL']
     
     # Keep sending the request until we get a status = 200        
     time_start = datetime.now()
