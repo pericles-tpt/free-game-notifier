@@ -51,7 +51,7 @@ def main():
 					j += 1
 
 				# Determine if it's the desired item... (could put some filters here) 
-				item_str = data[i-9-j+2: i-9]
+				item_str = data[i-e_str_len-j+2: i-e_str_len]
 				if (item_str[0:4] == "FREE" and "on" in item_str):
 					lst   = item_str[5:].split(' on ')			
 					game  = lst[0]
