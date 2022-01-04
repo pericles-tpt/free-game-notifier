@@ -1,5 +1,5 @@
 # free-game-notifier
-A small python program I made to notify me (via PushOver) of free pc games whenever they get announced. It currently scrapes gg.deals to find "freebies" (might not be the best data source) and uses PushOver to send the notification (PushOver is a paid service but it's a very good value imo).
+A small python program I made to notify me (via [PushOver](https://pushover.net/)) of free pc games whenever they get announced. It currently scrapes [gg.deals](https://gg.deals/) to find "freebies" (might not be the best data source) and uses PushOver to send the notification (PushOver is a paid service but it's a very good value in my opinion).
 
 ## Setup
 1. IMPORTANT, rename `creds.example.yml` to `creds.yml`
