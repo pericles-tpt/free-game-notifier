@@ -18,7 +18,7 @@
 # OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 # OR OTHER DEALINGS IN THE SOFTWARE.
 
-import yaml
+import yaml, os
 
 def load_yaml(directory='cfg/creds.yml'):
     ret = {}
@@ -53,4 +53,15 @@ def retrieve_from_yaml(keys=None, return_list=False):
             print('Invalid Config Key: One of the supplied keys is NOT a valid config property')
             quit()
 
+    return ret
+
+def append_to_file(msg, pth='./dat/found'):
+    with open(pth, 'a+') as out:
+        out.write(msg)
+
+def read_lines_to_list(pth='./dat/found'):
+    ret = []
+    if (os.path.isfile(pth)):
+        with open(pth, 'r') as inp:
+            ret = inp.readlines()
     return ret

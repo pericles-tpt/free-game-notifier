@@ -18,32 +18,44 @@
 # OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 # OR OTHER DEALINGS IN THE SOFTWARE.
 
-from api  import attempt_get_raw_html, attempt_po_api_request
-from time import sleep
+from api   import attempt_get_raw_html, attempt_po_api_request
+from files import read_lines_to_list, append_to_file
+from time  import sleep
 
 MINUTE      = 60
 run_every   = 15 * MINUTE
 found_deals = []
+delim       = '¤'
 
 def main():
 	global found_deals
 
+	# 1. Restore freebies/bundles/etc from previous sessions, from disk
+	for i in read_lines_to_list():
+		if (len(i) > 0):
+			tmp = i.split(delim)
+			found_deals.append((tmp[0], tmp[1][:-1]))
+
 	while(1):
-		# 1. Get valid items from raw html
+		# 2. Get valid items from raw html
 		bundles  = filter_valid_items("https://gg.deals/au/news/bundles")
 		freebies = filter_valid_items("https://gg.deals/au/news/freebies")
 
-		# 2. Reset the notification queue
+		# 3. Reset the notification queue
 		notify_q  = []
 
-		# 3. Update notify_q and found_deals
+		# 4. Update notify_q and found_deals
 		notify_q    += freebies + bundles
 		found_deals += freebies + bundles
 	
-		# 4. Reverse notify_q to present notifications in the right order
+		# 5. Reverse notify_q to present notifications in the right order
+		#    AND write to disk
 		notify_q.reverse()
+		out_str = ""
 		for i in notify_q:
+			out_str += f"{i[0]}{delim}{i[1]}\n"
 			attempt_po_api_request(f"{i[1]}: '{i[0]}'")
+		append_to_file(out_str)
 
 		sleep(run_every)
 

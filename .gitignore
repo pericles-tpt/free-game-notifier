@@ -1,5 +1,6 @@
 # Project specific
 creds.yml
+dat/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
