@@ -6,7 +6,7 @@ A small python program I made to notify me (via [PushOver](https://pushover.net/
 2. Put your API User Key and API Token Key from PushOver into `creds.yml`
 3. Change the global variables (lines 6 - 8) in `api.py` to your liking
 4. Change `RUN_EVERY` in `main.py` to set the delay between checks for new free games
-5. Run `pip install -r requirements.txt`
+5. Run `pip3 install -r requirements.txt`
 6. Finally, run `python3 src/main.py` to start the program
 
 ## Future Improvements
