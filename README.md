@@ -13,3 +13,9 @@ A small python program I made to notify me (via PushOver) of free pc games whene
 1. Streamline the setup process
 2. Store previously found games to a file to avoid duplicate alerts when running the program multiple times
 3. Find a better data source than gg.deals?
+
+## Donations
+If you've benefitted from this code, feel free to donate to one of the following cryptocurrency addresses
+
+    BTC: 37iH1qF13dgzcsd5HAntpKAYf6oaoZK77z
+    ETH: 0x4c4386c78FBD6CC3a5BB41cD21CB3276a716a787
