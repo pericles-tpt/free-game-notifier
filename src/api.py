@@ -55,6 +55,7 @@ def attempt_po_api_request(message, token_no=0):
                 return
 
         try:
+            # SOURCE: Below example code copied from: https://support.pushover.net/i44-example-code-and-pushover-libraries#python
             conn.request("POST", "/1/messages.json",
             urllib.parse.urlencode({
                 "token": po_token_key,
