@@ -68,19 +68,20 @@ def attempt_po_api_request(message, token_no=0):
 def attempt_get_raw_html(url):
     timeouts_count  = 0
     sc              = 0
-    
-    # Keep sending the request until we get a status = 200        
+    r               = None
+
+    # Keep sending the request until we get a status = 200
     time_start = datetime.now()
     while (sc != 200):
 
         # Will give up on POSTing to PushOver servers (for this function call) if the "timeout" period elapses
         if ((datetime.now() - time_start).seconds > timeout):
             timeouts_count += 1
-            
+
             # Will skip the rest of this function if n total "timeouts" have occured during the execution of this program
             if timeouts_count == timeouts_limit:
-                print(f"PushOver servers may be down, experienced {timeouts_limit} timeouts of POST requests. Skipping notification push...")
-                return
+                print(f"Couldn't get html, experienced {timeouts_limit} timeouts of GET requests. Skipping get requests...")
+                break
 
         try:
             r    = requests.get(url)
@@ -96,7 +97,10 @@ def attempt_get_raw_html(url):
         except Exception as e:
             handle_exception(e)
 
+    try:
         return r.text
+    except:
+        return None
 
 def handle_exception(error, return_nothing = False):
     print(f"Lost connection, due to '{error}' occured at {datetime.now()}. Wait for {exception_delay} seconds.")
