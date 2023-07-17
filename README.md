@@ -18,9 +18,3 @@ OPTIONAL: Alternative to **6** (if you'd like to be notified when the program te
 1. Streamline the setup process
 2. <s>Store previously found games to a file to avoid duplicate alerts when running the program multiple times</s>
 3. <s>Find a better data source than gg.deals?</s> (I think gg.deals is ok)
-
-## Donations
-If you've benefitted from this code, feel free to donate to one of the following cryptocurrency addresses
-
-    BTC: 37iH1qF13dgzcsd5HAntpKAYf6oaoZK77z
-    ETH: 0x4c4386c78FBD6CC3a5BB41cD21CB3276a716a787
